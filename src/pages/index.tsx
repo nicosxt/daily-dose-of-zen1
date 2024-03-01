@@ -7,6 +7,12 @@ export default function Home() {
   const [isCreating, setIsCreating] = useState(false);
   const [resultImageUrl, setResultImageUrl] = useState(undefined);
 
+  const handleButtonClick = (buttonText: string) => {
+    setPrompt(buttonText);
+  };
+
+  // This function is called when the user clicks the "Create" button
+  //sends request to EdenAI API to generate an image based on the user's input
   const handleSubmit = async () => {
     try {
       setIsCreating(true);
@@ -18,41 +24,66 @@ export default function Home() {
       setIsCreating(false);
     }
   };
+
   return (
-    <main className="p-4 ">
-      <h1 className="text-4xl font-bold text-center mb-4">Hello Eden</h1>
-      {resultImageUrl && (
-        <div className="flex justify-center">
-          <Image
-            src={resultImageUrl}
-            alt={prompt}
-            width={500}
-            height={500}
-            className="rounded-lg shadow-lg"
+    <main className="p-4 inputpage-parent">
+      <div className="inputpage-container">
+        <div className="inputpage-item">
+          <h1 className="mb-12 text-5xl font-bold text-center">Daily Dose of Zen</h1>
+        </div>
+        <div className="inputpage-item">
+          <h3 className="text-2xl font-bold text-center">I'm feeling...</h3>
+        </div>
+        <div className="inputpage-item">
+          <button className="inputpage-button standard-button" onClick={() => handleButtonClick("I'm excited!")}>
+            Excited <span role="img" aria-label="Search">🥳</span>
+          </button>
+          <button className="inputpage-button standard-button" onClick={() => handleButtonClick("I feel confused...")}>
+            Confused <span role="img" aria-label="Search">🥹</span>
+          </button>
+          <button className="inputpage-button standard-button" onClick={() => handleButtonClick("I'm feeling lazy and sluggish~")}>
+            Sluggish <span role="img" aria-label="Search">🪱</span>
+          </button>
+          <button className="inputpage-button standard-button" onClick={() => handleButtonClick("I'm depressed ToT, help!")}>
+            Depressed <span role="img" aria-label="Search">😭</span>
+          </button>
+          <button className="inputpage-button standard-button" onClick={() => handleButtonClick("I'm wondering about some things...")}>
+            Inquisitive <span role="img" aria-label="Search">🤔</span>
+          </button>
+          <button className="inputpage-button standard-button" onClick={() => handleButtonClick("I feel very funky~ Woo woo")}>
+            Funky <span role="img" aria-label="Search">💃</span>
+          </button>
+        </div>
+        <div className="mt-4 inputpage-item">
+          <input
+            type="text"
+            placeholder="Type here..."
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+            className="w-[90%] m-auto p-[10px] text-[16px] border-[1.5px] border-[solid] border-[#000000] rounded-none text-[black]"
           />
         </div>
-      )}
-      <div className="mt-4">
-        <label
-          htmlFor="prompt"
-          className="block text-sm font-medium text-white"
+        <button
+          onClick={handleSubmit}
+          disabled={isCreating}
+          className={`inputpage-item standard-button ${isCreating ? 'hover:bg-[#858585] bg-[#333333]' : 'hover:bg-[#13c1a1] bg-[#fd92ff]'}`}
         >
-          Prompt
-        </label>
-        <input
-          type="text"
-          value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black"
-        />
+          {isCreating ? "Creating............." : "Create"}
+        </button>
+        <div className="inputpage-item">
+          {resultImageUrl && (
+            <div className="flex justify-center">
+              <Image
+                src={resultImageUrl}
+                alt={prompt}
+                width={500}
+                height={500}
+                className="rounded-lg shadow-lg"
+              />
+            </div>
+          )}
+        </div>
       </div>
-      <button
-        onClick={handleSubmit}
-        disabled={isCreating}
-        className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50"
-      >
-        {isCreating ? "Creating..." : "Create"}
-      </button>
     </main>
   );
 }

@@ -17,14 +17,7 @@
 }
 
 body {
-  /* color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)); */
-  background-color: rgb(204, 255, 203);
+
 }
 
 .standard-button{
@@ -43,27 +36,26 @@ body {
   color: white;
 }
 
-.inputpage-parent{
+.page-parent{
   display: flex;
   justify-content: center; /* Centers horizontally */
   align-items: center; /* Centers vertically */
   height: 100vh;
 }
 
-.inputpage-container{
+.page-container{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  height: 80vh;
-  gap: 10px;
+  /* gap: 10px; */
   /* center the element here while give it max width of 70% of the screen */
   max-width: 70%;
   margin: auto;
   /* background-color: yellow; */
 }
 
-.inputpage-item{
+.page-item{
     /* have each input-item to be in its own row inside input-button-container */
     flex: 0 0 100%; /* 1 input per row */
     display: flex;
@@ -75,7 +67,8 @@ body {
   
 }
 
-.inputpage-button {
+
+.page-button {
   background-color: #78ffb7;
   display: flex;
   flex-wrap: wrap;
@@ -85,6 +78,20 @@ body {
   max-width: calc(33.33% - 20px);
 }
 
-.inputpage-button:hover {
+.page-button:hover {
   background-color: #13c1a1;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+

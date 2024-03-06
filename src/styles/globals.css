@@ -16,9 +16,26 @@
   }
 }
 
-body {
 
+
+@font-face {
+  font-family: 'SerifDisplay-Italic';
+  src: url('/fonts/DMSerifDisplay-Regular') format('ttf');
+  font-weight: normal;
+  font-style: italic;
 }
+
+@font-face {
+  font-family: 'SerifDisplay';
+  src: url('/fonts/DMSerifDisplay-italic.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body, button, input, textarea {
+  font-family: 'SerifDisplay';
+}
+
 
 .standard-button{
   padding: 10px 20px;
@@ -29,11 +46,13 @@ body {
   cursor: pointer;
   border: 1.5px solid #000000;
   border-radius: 0px;
-  color: black;
+  background-color: transparent;
 }
 
 .standard-button:hover{
+  border: 1.5px solid white;
   color: white;
+  /* color: white; */
 }
 
 .page-parent{
@@ -69,17 +88,21 @@ body {
 
 
 .page-button {
-  background-color: #78ffb7;
+  /* background-color: #78ffb7; */
+  background-color: transparent;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
   flex: 1 1 calc(33.33% - 20px); /* Allows 3 buttons per row */
   max-width: calc(33.33% - 20px);
+  border: 1.5px solid black;
 }
 
 .page-button:hover {
-  background-color: #13c1a1;
+  /* background-color: #13c1a1; */
+  color: white;
+  border: 1.5px solid white;
 }
 
 @keyframes fadeIn {

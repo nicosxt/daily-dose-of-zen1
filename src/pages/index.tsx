@@ -46,6 +46,7 @@ const handleGoBack = () => {
 };
 
   return (
+    
     <main className="p-4 page-parent" style={{ position: 'relative', overflow: 'hidden' }}>
     <video autoPlay muted loop style={{
       position: 'absolute',
@@ -67,7 +68,7 @@ const handleGoBack = () => {
           <h1 className="mb-12 text-5xl font-bold text-center">Daily Dose of Zen</h1>
         </div>
         <div className="page-item">
-          <h3 className="text-2xl font-bold text-center">I'm feeling...</h3>
+          <h3 className="text-2xl text-center">I'm feeling...</h3>
         </div>
         <div className="page-item">
           <button className="page-button standard-button" onClick={() => handleButtonClick("I'm excited!")}>
@@ -101,9 +102,9 @@ const handleGoBack = () => {
         <button
           onClick={handleSubmit}
           disabled={isCreating}
-          className={`create-button page-item standard-button ${isCreating ? 'hover:bg-[#858585] bg-[#333333]' : 'hover:bg-[#13c1a1] bg-[#fd92ff]'}`}
+          className={`create-button page-item standard-button`}
         >
-          Inspire me
+          INSPIRE ME
         </button>
       </div>
       )}

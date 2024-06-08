@@ -68,7 +68,7 @@ const handleGoBack = () => {
           <h1 className="mb-12 text-5xl font-bold text-center">Daily Dose of Zen</h1>
         </div>
         <div className="page-item">
-          <h3 className="text-2xl text-center">I'm feeling...</h3>
+          <h3 className="text-2xl text-center">I&apos;m feeling...</h3>
         </div>
         <div className="page-item">
           <button className="page-button standard-button" onClick={() => handleButtonClick("I'm excited!")}>
@@ -113,7 +113,7 @@ const handleGoBack = () => {
     // <div className="page-parent">
       <div className="page-container h-50vh">
       <div className={`page-item prompt-display ${result !== defaultResult ? 'fade-in' : ''}`}>
-          <h1 className="mb-12 text-3xl text-center">"{prompt}"</h1>
+          <h1 className="mb-12 text-3xl text-center">&quot;{prompt}&quot;</h1>
           
       </div>
       <div className={`page-item prompt-display ${result !== defaultResult ? 'fade-in' : ''}`}>

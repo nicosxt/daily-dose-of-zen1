@@ -4,36 +4,43 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb: 190, 204, 255;
+  --background-end-rgb: 194, 255, 185;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 190, 204, 255;
+    --background-end-rgb: 194, 255, 185;
+    --highlight-color: rgb(255, 255, 255);
   }
 }
 
-
-
 @font-face {
   font-family: 'SerifDisplay-Italic';
-  src: url('/fonts/DMSerifDisplay-Regular') format('ttf');
+  src: url('/fonts/RobotoMono-VariableFont_wght.ttf') format('truetype');
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'SerifDisplay';
-  src: url('/fonts/DMSerifDisplay-italic.ttf') format('ttf');
+  src: url('/fonts/RobotoMono-VariableFont_wght.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
-body, button, input, textarea {
+button, input, textarea {
   font-family: 'SerifDisplay';
+}
+
+body {
+  font-family: 'SerifDisplay';
+  margin: 0; /* Remove default margin */
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  background-image: linear-gradient(to bottom right, rgb(var(--background-start-rgb)), rgb(var(--background-end-rgb)));
 }
 
 
@@ -45,13 +52,14 @@ body, button, input, textarea {
   max-width: 350px;
   cursor: pointer;
   border: 1.5px solid #000000;
-  border-radius: 0px;
-  background-color: transparent;
+  border-radius: 5px;
+  /* background-color: #000000; */
 }
 
-.standard-button:hover{
-  border: 1.5px solid white;
-  color: white;
+.standard-button:hover, .page-button:hover{
+  border: 1.5px solid var(--highlight-color);
+  color: var(--highlight-color);
+  /* color: rgb(70, 255, 187); */
   /* color: white; */
 }
 
@@ -97,12 +105,6 @@ body, button, input, textarea {
   flex: 1 1 calc(33.33% - 20px); /* Allows 3 buttons per row */
   max-width: calc(33.33% - 20px);
   border: 1.5px solid black;
-}
-
-.page-button:hover {
-  /* background-color: #13c1a1; */
-  color: white;
-  border: 1.5px solid white;
 }
 
 @keyframes fadeIn {

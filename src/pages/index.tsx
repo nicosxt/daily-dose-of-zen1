@@ -48,7 +48,7 @@ const handleGoBack = () => {
   return (
     
     <main className="p-4 page-parent" style={{ position: 'relative', overflow: 'hidden' }}>
-    <video autoPlay muted loop style={{
+    {/* <video autoPlay muted loop style={{
       position: 'absolute',
       width: '100%',
       left: '50%',
@@ -60,7 +60,7 @@ const handleGoBack = () => {
     }}>
       <source src="vids/bg.mp4" type="video/mp4" />
       Your browser does not support the video tag.
-    </video>
+    </video> */}
 
       {!showNewContent && (
       <div className="page-container h-[60vh]">

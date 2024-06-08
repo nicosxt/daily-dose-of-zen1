@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import ResultPage from "./resultpage";
-import PromptResult from "@/components/PromptResult";
+//import PromptResult from "@/components/PromptResult";
 import axios from "axios";
 
 

@@ -6,6 +6,12 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 190, 204, 255;
   --background-end-rgb: 194, 255, 185;
+  --inputbox-background: rgba(0, 0, 0, 0.5); /* 50% transparent */
+  --inputbox-background-blur: blur(10px); /* Blur the background */
+  --inputbox-background-transition: background-color 0.3s ease-in-out;
+  --inputbox-background-hover: rgba(68, 132, 84, 0.5); /* 50% transparent */
+  --title-color: #1e1e1e;
+  --highlight-color: rgb(90, 109, 95);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,20 +19,20 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 190, 204, 255;
     --background-end-rgb: 194, 255, 185;
-    --highlight-color: rgb(255, 255, 255);
+    --highlight-color: rgb(90, 109, 95);
   }
 }
 
 @font-face {
-  font-family: 'SerifDisplay-Italic';
-  src: url('/fonts/RobotoMono-VariableFont_wght.ttf') format('truetype');
+  font-family: 'FontDisplay-Medium';
+  src: url('/fonts/Ubuntu-Medium.ttf') format('truetype');
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'SerifDisplay';
-  src: url('/fonts/RobotoMono-VariableFont_wght.ttf') format('truetype');
+  src: url('/fonts/Ubuntu-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -38,48 +44,74 @@ button, input, textarea {
 body {
   font-family: 'SerifDisplay';
   margin: 0; /* Remove default margin */
-  height: 100vh; /* Full viewport height */
+  min-height: 100vh; /* Minimum height to cover the viewport height */
   width: 100vw; /* Full viewport width */
   background-image: linear-gradient(to bottom right, rgb(var(--background-start-rgb)), rgb(var(--background-end-rgb)));
+  overflow-y: auto; /* Allows vertical scrolling */
 }
 
-
 .standard-button{
-  padding: 10px 20px;
+  padding: 20px 20px;
   margin: 0.5rem;
-  font-size: 18px;
+  font-size: 20px;
   min-width: 170px;
   max-width: 350px;
   cursor: pointer;
-  border: 1.5px solid #000000;
+  /* border: 1.5px solid #000000; */
+  color: white;
+  background-color: var(--title-color);
   border-radius: 5px;
   /* background-color: #000000; */
 }
 
-.standard-button:hover, .page-button:hover{
-  border: 1.5px solid var(--highlight-color);
-  color: var(--highlight-color);
-  /* color: rgb(70, 255, 187); */
-  /* color: white; */
-}
 
-.page-parent{
-  display: flex;
-  justify-content: center; /* Centers horizontally */
-  align-items: center; /* Centers vertically */
-  height: 100vh;
-}
-
-.page-container{
+.page-button {
+  /* background-color: transparent; */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  /* gap: 10px; */
-  /* center the element here while give it max width of 70% of the screen */
+  width: 100px; /* Set width for circle */
+  height: 100px; /* Set height for circle */
+  border-radius: 50%; /* Make it a circle */
+  border: 1.5px solid white;
+  margin: 20px 20px;
+  font-size: 30px;
+  background-color: var(--inputbox-background); /* 50% transparent */
+  backdrop-filter: blur(10px); /* Blur the background */
+  transition: background-color 0.5s ease-in-out;
+}
+
+.page-button:hover{
+  background-color: var(--inputbox-background-hover); /* 50% transparent */
+  backdrop-filter: blur(10px); /* Blur the background */
+  transition: background-color 0.5s ease-in-out;
+}
+
+.standard-button:hover{
+  /* border: 1.5px solid var(--highlight-color); */
+  transition: background-color 0.5s ease-in-out;
+  background-color: var(--highlight-color);
+  /* color: rgb(70, 255, 187); */
+  /* color: white; */
+}
+
+.page-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* This might need to be changed to min-height */
+  overflow: auto; /* Add this to test */
+}
+
+.page-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   max-width: 70%;
   margin: auto;
-  /* background-color: yellow; */
+  overflow: auto; /* Add this to test */
 }
 
 .page-item{
@@ -94,17 +126,19 @@ body {
   
 }
 
+.prompt-display{
+  color: var(--title-color);
+  font: 30px;
 
-.page-button {
-  /* background-color: #78ffb7; */
-  background-color: transparent;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  flex: 1 1 calc(33.33% - 20px); /* Allows 3 buttons per row */
-  max-width: calc(33.33% - 20px);
-  border: 1.5px solid black;
+}
+
+.prompt-container{
+  background-color: var(--inputbox-background); /* 50% transparent */
+  backdrop-filter: blur(10px); /* Blur the background */
+  padding: 20px;
+  border-radius: 5px;
+  height: 70vh;
+  overflow: auto;
 }
 
 @keyframes fadeIn {
@@ -120,3 +154,38 @@ body {
   animation: fadeIn 1s ease-out forwards;
 }
 
+.text-title{
+  letter-spacing: 10px;
+  /* color: linear-gradient(to bottom right, #ff9ec6, #92ff88); */
+  /* -webkit-background-clip: text; */
+  text-shadow: 3px 3px 3px rgba(26, 26, 26, 0.2);
+  color: var(--title-color);
+
+}
+
+.inputfield{
+  color: #ffffff; /* Match the color with .text-title */
+  width: 90%;
+  margin: 20px;
+  padding: 10px;
+  font-size: 18px;
+  height: 300px; /* Adjusted height */
+  max-height: 30vh;
+  vertical-align: top; /* Ensure text starts from top */
+  border-radius: 5px;
+  background-color: var(--inputbox-background); /* 50% transparent */
+  backdrop-filter: blur(10px); /* Blur the background */
+  transition: background-color 0.5s ease-in-out;
+}
+
+.inputfield::placeholder { /* Change color of placeholder text */
+  color: hsl(0, 0%, 100%); /* Lighter shade of green for visibility */
+}
+
+.inputfield:focus {
+  color: #ffffff;
+  outline: none;
+  background-color: var(--inputbox-background-hover); /* 50% transparent */
+  backdrop-filter: blur(10px);
+  transition: background-color 0.5s ease-in-out;
+}

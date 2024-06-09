@@ -46,72 +46,66 @@ const handleGoBack = () => {
 };
 
   return (
-    
     <main className="p-4 page-parent" style={{ position: 'relative', overflow: 'hidden' }}>
-    {/* <video autoPlay muted loop style={{
+    <div style={{
       position: 'absolute',
       width: '100%',
       left: '50%',
       top: '50%',
       height: '100%',
-      objectFit: 'cover',
+      background: `url('imgs/bg.jpg') no-repeat center center`,
+      backgroundSize: 'cover',
       transform: 'translate(-50%, -50%)',
       zIndex: '-1',
-    }}>
-      <source src="vids/bg.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video> */}
+    }} />
 
       {!showNewContent && (
-      <div className="page-container h-[60vh]">
+      <div className="page-container h-[80vh]">
         <div className="page-item">
-          <h1 className="mb-12 text-5xl font-bold text-center">Daily Dose of Zen</h1>
-        </div>
-        <div className="page-item">
-          <h3 className="text-2xl text-center">I&apos;m feeling...</h3>
-        </div>
-        <div className="page-item">
-          <button className="page-button standard-button" onClick={() => handleButtonClick("I'm excited!")}>
-            Excited <span role="img" aria-label="Search">🥳</span>
-          </button>
-          <button className="page-button standard-button" onClick={() => handleButtonClick("I feel confused...")}>
-            Confused <span role="img" aria-label="Search">🥹</span>
-          </button>
-          <button className="page-button standard-button" onClick={() => handleButtonClick("I'm feeling lazy and sluggish~")}>
-            Sluggish <span role="img" aria-label="Search">🪱</span>
-          </button>
-          <button className="page-button standard-button" onClick={() => handleButtonClick("I'm depressed ToT, help!")}>
-            Depressed <span role="img" aria-label="Search">😭</span>
-          </button>
-          <button className="page-button standard-button" onClick={() => handleButtonClick("I'm wondering about some things...")}>
-            Inquisitive <span role="img" aria-label="Search">🤔</span>
-          </button>
-          <button className="page-button standard-button" onClick={() => handleButtonClick("I feel very funky~ Woo woo")}>
-            Funky <span role="img" aria-label="Search">💃</span>
-          </button>
+        <h1 className="mb-12 text-5xl font-bold text-center text-title" style={{ fontSize: 'clamp(1.5rem, 5vw, 3rem)' }}>DailyZen.Club</h1>
         </div>
         <div className="mt-4 page-item">
-          <input
-            type="text"
-            placeholder="Type here..."
+          <textarea
+            placeholder="I&apos;m feeling..."
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
-            className="w-[90%] m-auto p-[10px] text-[16px] border-[1.5px] border-[solid] border-[#000000] rounded-none text-[black]"
+            className="inputfield"
           />
         </div>
+        <div className="page-item">
+          <button className="page-button" onClick={() => handleButtonClick("I'm excited!")}>
+            <span role="img" aria-label="Search">🥳</span>
+          </button>
+          <button className="page-button" onClick={() => handleButtonClick("I feel confused...")}>
+            <span role="img" aria-label="Search">🥹</span>
+          </button>
+          <button className="page-button" onClick={() => handleButtonClick("I'm feeling lazy and sluggish~")}>
+            <span role="img" aria-label="Search">🪱</span>
+          </button>
+          <button className="page-button" onClick={() => handleButtonClick("I'm depressed ToT, help!")}>
+            <span role="img" aria-label="Search">😭</span>
+          </button>
+          <button className="page-button" onClick={() => handleButtonClick("I'm wondering about some things...")}>
+            <span role="img" aria-label="Search">🤔</span>
+          </button>
+          <button className="page-button" onClick={() => handleButtonClick("I feel very funky~ Woo woo")}>
+            <span role="img" aria-label="Search">💃</span>
+          </button>
+        </div>
+
         <button
           onClick={handleSubmit}
           disabled={isCreating}
           className={`create-button page-item standard-button`}
         >
-          INSPIRE ME
+          Inspire Me
         </button>
       </div>
       )}
 
     {showNewContent && (
     // <div className="page-parent">
-      <div className="page-container h-50vh">
+      <div className="page-container h-50vh prompt-container">
       <div className={`page-item prompt-display ${result !== defaultResult ? 'fade-in' : ''}`}>
           <h1 className="mb-12 text-3xl text-center">&quot;{prompt}&quot;</h1>
           

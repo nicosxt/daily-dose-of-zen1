@@ -71,8 +71,8 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  width: 100px; /* Set width for circle */
-  height: 100px; /* Set height for circle */
+  width: 10vw; /* Set width for circle */
+  height: 10vw; /* Set height for circle */
   border-radius: 50%; /* Make it a circle */
   border: 1.5px solid white;
   margin: 20px 20px;
@@ -109,7 +109,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  max-width: 70%;
+  max-width: 90%;
   margin: auto;
   overflow: auto; /* Add this to test */
 }
@@ -127,8 +127,9 @@ body {
 }
 
 .prompt-display{
-  color: var(--title-color);
-  font: 30px;
+  font-family: 'SerifDisplay';
+  color: white;
+  font-size: 30px;
 
 }
 
@@ -155,12 +156,11 @@ body {
 }
 
 .text-title{
-  letter-spacing: 10px;
+  letter-spacing: 5px;
   /* color: linear-gradient(to bottom right, #ff9ec6, #92ff88); */
   /* -webkit-background-clip: text; */
-  text-shadow: 3px 3px 3px rgba(26, 26, 26, 0.2);
+  /* text-shadow: 3px 3px 3px rgba(26, 26, 26, 0.2); */
   color: var(--title-color);
-
 }
 
 .inputfield{

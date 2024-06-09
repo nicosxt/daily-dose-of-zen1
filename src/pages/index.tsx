@@ -62,7 +62,7 @@ const handleGoBack = () => {
       {!showNewContent && (
       <div className="page-container h-[80vh]">
         <div className="page-item">
-        <h1 className="mb-12 text-5xl font-bold text-center text-title" style={{ fontSize: 'clamp(1.5rem, 5vw, 3rem)' }}>DailyZen.Club</h1>
+        <h1 className="mb-9 text-5xl font-bold text-center text-title" style={{ fontSize: 'clamp(1rem, 5vw, 3rem)' }}>DailyZen.Club</h1>
         </div>
         <div className="mt-4 page-item">
           <textarea
